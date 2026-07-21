@@ -13,31 +13,16 @@ $dbh=new PDO('sqlite:phpkiso.db');
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $dbh->exec('CREATE TABLE IF NOT EXISTS anketo(id INTEGER PRIMARY KEY,nickname TEXT,email TEXT,goiken TEXT)');
 
-$sql='SELECT * FROM anketo WHERE id=?';
+$sql='DELETE FROM anketo WHERE id=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$id;
 $stmt->execute($data);
 
-while(1)
-{
-  $rec=$stmt->fetch(PDO::FETCH_ASSOC);
-  if($rec==false)
-  {
-    break;
-  }
-  print $rec['id'];
-  print '　　';
-  print $rec['nickname'];
-  print '　　';
-  print $rec['email'];
-  print '　　';
-  print $rec['goiken'];
-  print '<br><br>';
-}
+print 'ご意見を削除しました';
 
 $dbh=null;
 ?>
 <br/>
-<a href="kensaku.html">検索画面に戻る</a>
+<a href="sakujo.html">削除画面に戻る</a>
 </body>
 </html>

@@ -9,12 +9,16 @@
 		<br><br><br>
 		<a href="ichiran.php">アンケート一覧表示</a>
 		<br><br><br>
-		<a href="kensaku.php">アンケート検索</a>
+		<a href="kensaku.html">アンケート検索</a>
+		<br><br><br>
+		<a href="sakujo.html">アンケート削除</a>
 		<br><br><br>
 		<a href="member_add.html">会員登録</a>
 		<br><br><br>
-		<a href="member_ichiran.php">会員一覧表示</a>
+		<a href="member_list.php">会員一覧表示</a>
 		<br><br><br>
-		<a href="member_kensaku.html">会員情報検索</a>
+		<a href="member_select.html">会員検索</a>
+		<br><br><br>
+		<a href="member_delete.html">会員削除</a>
 	</body>
 </html>

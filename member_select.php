@@ -2,18 +2,18 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>ＰＨＰ基礎</title>
+<title>会員検索</title>
 </head>
 <body>
 
 <?php
 $id=$_POST['id'];
 
-$dbh=new PDO('sqlite:phpkiso.db');
+$dbh=new PDO('sqlite:kadai.db');
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$dbh->exec('CREATE TABLE IF NOT EXISTS anketo(id INTEGER PRIMARY KEY,nickname TEXT,email TEXT,goiken TEXT)');
+$dbh->exec('CREATE TABLE IF NOT EXISTS member(id INTEGER PRIMARY KEY,name TEXT,pass TEXT,email TEXT,address TEXT)');
 
-$sql='SELECT * FROM anketo WHERE id=?';
+$sql='SELECT * FROM member WHERE id=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$id;
 $stmt->execute($data);
@@ -27,17 +27,19 @@ while(1)
   }
   print $rec['id'];
   print '　　';
-  print $rec['nickname'];
+  print $rec['name'];
+  print '　　';
+  print $rec['pass'];
   print '　　';
   print $rec['email'];
   print '　　';
-  print $rec['goiken'];
+  print $rec['address'];
   print '<br><br>';
 }
 
 $dbh=null;
 ?>
 <br/>
-<a href="kensaku.html">検索画面に戻る</a>
+<a href="member_select.html">検索画面に戻る</a>
 </body>
 </html>
